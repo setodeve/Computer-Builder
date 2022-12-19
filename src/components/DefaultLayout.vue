@@ -7,6 +7,7 @@
       <div>
         Brand <select name="" id=""></select>
         Model <select name="" id=""></select>
+        <pre>{{store.$state}}</pre>
       </div>
     </div>
 
@@ -15,14 +16,12 @@
 </template>
 
 <script setup="ts">
-  // import { useStore } from 'pinia'
   import { cpuStore } from '../stores/cpu'
 
   const store = cpuStore();
 
   console.log(store.$state)
   console.log(store.setData(1,0))
-  console.log(store.$state)
 </script>
 
 <style>
