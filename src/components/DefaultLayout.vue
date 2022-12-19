@@ -5,8 +5,14 @@
     <div>
       <div>step1:Select your CPU</div>
       <div>
-        Brand <select name="" id=""></select>
-        Model <select name="" id=""></select>
+        Brand 
+        <select name="" id="">
+          
+        </select>
+        Model 
+        <select name="" id="">
+
+        </select>
         <pre>{{store.$state}}</pre>
       </div>
     </div>
@@ -20,8 +26,9 @@
 
   const store = cpuStore();
 
-  console.log(store.$state)
+  store.getData("https://api.recursionist.io/builder/computers?type=cpu")
   console.log(store.setData(1,0))
+  console.log(store.$state)
 </script>
 
 <style>
