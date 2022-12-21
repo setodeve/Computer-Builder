@@ -31,7 +31,7 @@ import { cpuStore } from '../stores/cpu'
   const store = cpuStore();
   store.getData("https://api.recursionist.io/builder/computers?type=cpu")
 
-  // console.log(store.$state.fetchdata)
+
 
 </script>
 
