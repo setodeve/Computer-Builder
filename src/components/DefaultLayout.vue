@@ -4,11 +4,7 @@
     <div v-if="store.$state.Loading==true">
         <div>step1:Select your CPU</div>
         <div id="select">
-
           <select id="selectBrand">          
-            <!-- <option value="{{ store.$state.fetchdata[0]['Brand'] }}">
-              {{ store.$state.fetchdata[0]["Brand"] }}
-            </option> -->
             <option v-for="data in store.$state.fetchdata" value="{{ data['Brand'] }}">
               {{ data['Brand'] }}
             </option>
