@@ -6,14 +6,16 @@
         <div id="select">
           Brand
           <select id="selectBrand">          
-            <option v-for="data in store.$state.fetchdata" :key="data.id" value="{{ data['Brand'] }}">
+            <option value="-">-</option>
+            <option v-for="(data, index) in store.trimData(store.$state.fetchdata,'Brand')" :key=index v-bind:value="data['Brand']">
               {{ data['Brand'] }}
             </option>
           </select>
 
           Model 
           <select name="" id="">
-            <option v-for="data in store.$state.fetchdata" :key="data.id" value="{{ data['Model'] }}">
+            <option value="-">-</option>
+            <option v-for="(data, index) in store.trimData(store.$state.fetchdata,'Model')" :key=index v-bind:value="data['Model']" >
               {{ data['Model'] }}
             </option>
           </select>        
@@ -28,10 +30,8 @@
 <script setup="ts">
 import { cpuStore } from '../stores/cpu'
 
-  const store = cpuStore();
-  store.getData("https://api.recursionist.io/builder/computers?type=cpu")
-
-
+const store = cpuStore();
+store.getData("https://api.recursionist.io/builder/computers?type=cpu")
 
 </script>
 

@@ -18,5 +18,11 @@ export const cpuStore = defineStore('cpu',{
       .then(data => this.fetchdata = data)
       .then(() => this.Loading = true )
     },
+    trimData(array,str){
+      return array.filter((item, index, self) => {
+        const nameList = self.map(item => item[str]);
+        if (nameList.indexOf(item[str]) === index) return item;
+      })
+    }
   }
 })
