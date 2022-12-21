@@ -4,14 +4,18 @@
     <div v-if="store.$state.Loading==true">
         <div>step1:Select your CPU</div>
         <div id="select">
+          Brand
           <select id="selectBrand">          
-            <option v-for="data in store.$state.fetchdata" value="{{ data['Brand'] }}">
+            <option v-for="data in store.$state.fetchdata" :key="data.id" value="{{ data['Brand'] }}">
               {{ data['Brand'] }}
             </option>
           </select>
 
           Model 
           <select name="" id="">
+            <option v-for="data in store.$state.fetchdata" :key="data.id" value="{{ data['Model'] }}">
+              {{ data['Model'] }}
+            </option>
           </select>        
 
         </div>
@@ -24,11 +28,10 @@
 <script setup="ts">
 import { cpuStore } from '../stores/cpu'
 
-  const parent = document.getElementById('select');
   const store = cpuStore();
-  const selecthtml = store.getData("https://api.recursionist.io/builder/computers?type=cpu")
+  store.getData("https://api.recursionist.io/builder/computers?type=cpu")
 
-  console.log(store.$state.fetchdata)
+  // console.log(store.$state.fetchdata)
 
 </script>
 
