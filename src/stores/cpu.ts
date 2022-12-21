@@ -4,7 +4,8 @@ export const cpuStore = defineStore('cpu',{
   state: () => ({
     brand: "test",
     model: "",
-    fetchdata: []
+    fetchdata: {},
+    Loading:false
   }),
   actions:{
     setData(brand:string, model:string){
@@ -14,7 +15,21 @@ export const cpuStore = defineStore('cpu',{
     getData(url:string){
       return fetch(url)
       .then(data => data.json())
-      .then(data => this.fetchdata = data);
+      // .then(data => this.fetchdata = data)
+      // .then(data => this.fetchdata = this.makehtml(data))
+      .then(data => this.fetchdata = data)
+      .then(() => this.Loading = true )
+    },
+    makehtml(array:any){
+      const parent = document.createElement("select");
+      // console.log(parent)
+      for(let i=0;i<array.length;i++){
+       parent.innerHTML += `<option value="${array[i]['Brand']}">
+                              ${array[i]['Brand']}
+                            </option>`
+      }
+      // console.log(parent)
+      return parent;
     }
   }
 })
