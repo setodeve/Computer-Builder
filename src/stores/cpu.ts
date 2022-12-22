@@ -37,6 +37,20 @@ export const cpuStore = defineStore('cpu',{
      */
     extractBrandData(array:any){
       return array.filter(w=>w.Brand==this.$state.brand)
+    },
+    /**
+     * Brandで選択された値をstate.brandにセットする
+     * @param {object} e イベントデータ
+     */
+    setBrandData(e){
+      this.$patch({brand: e.target.value});
+    },
+    /**
+     * Modelで選択された値をstate.brandにセットする
+     * @param {object} e イベントデータ
+     */
+    setModelData(e){
+      this.$patch({model: e.target.value});
     }
   },
 })
