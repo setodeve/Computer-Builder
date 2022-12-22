@@ -54,7 +54,7 @@
 <script lang="ts">
 import { cpuStore } from '../stores/cpu'
 import { gpuStore } from '../stores/gpu'
-import { defineComponent,toRef } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent ({
   setup(props){
     const store = props.type=="CPU" ? cpuStore() : gpuStore() ;
