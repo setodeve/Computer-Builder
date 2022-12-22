@@ -10,7 +10,7 @@ export const gpuStore = defineStore('gpu',{
   }),
   actions:{
     /**
-     * urlをfetchし、fetchしたデータをセットする関数
+     * urlをfetchし、fetchしたデータをセットする
      * @param {string} url fetch先のURL
      */
     getData(url:string){
@@ -20,7 +20,7 @@ export const gpuStore = defineStore('gpu',{
       .then(() => this.Loading = true )
     },
     /**
-     * strの要素だけデータをトリミングする関数
+     * strの要素だけデータをトリミングする
      * @param {any} array 配列データ
      * @param {string} str BrandやModelなどの文字列
      * @return {stirng} トリミングした配列
@@ -32,7 +32,7 @@ export const gpuStore = defineStore('gpu',{
       })
     },
     /**
-     * Brandで選択されたの要素だけデータを抽出する関数
+     * Brandで選択されたの要素だけデータを抽出する
      * @param {any} array 配列データ
      * @return {stirng} 抽出した配列
      */

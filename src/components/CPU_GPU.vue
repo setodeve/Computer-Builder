@@ -12,7 +12,7 @@
               </option>
             </select>
             Model 
-            <select name="" id="" v-model="selected" v-on:change="store.setModelData($event,selected)">
+            <select id="selectModel" v-model="selected" v-on:change="store.setModelData($event,selected)">
               <option value="-">-</option>
               <option v-for="(data, index) in store.trimData(store.extractBrandData(store.$state.fetchdata),'Model')" :key=index v-bind:value="data" >
                 {{ data['Model'] }}

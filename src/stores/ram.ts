@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const ramStore = defineStore('ram',{
   state: () => ({
-    num :"-",
+    size :"-",
     brand: "-",
     model: "-",
     fetchdata: {},
@@ -11,17 +11,30 @@ export const ramStore = defineStore('ram',{
   }),
   actions:{
     /**
-     * urlをfetchし、fetchしたデータをセットする関数
+     * urlをfetchし、fetchしたデータをセットする
      * @param {string} url fetch先のURL
      */
     getData(url:string){
       fetch(url)
       .then(data => data.json())
-      .then(data => this.fetchdata = data)
+      .then(data => this.fetchdata = this.trimRamSizeData(data))
       .then(() => this.Loading = true )
     },
     /**
-     * strの要素だけデータをトリミングする関数
+     * メモリの数とメモリの大きさを連想配列に追加する
+     * @param {any} array 配列データ
+     * @return {stirng} トリミングした配列
+     */
+      trimRamSizeData(array:any){
+        return array.filter((item) => {
+          const position = item.Model.lastIndexOf(" ");
+          item.Size = item.Model.substring(position+1);
+          return item;
+        })
+      }
+      ,
+    /**
+     * strの要素だけデータをトリミングする
      * @param {any} array 配列データ
      * @param {string} str BrandやModelなどの文字列
      * @return {stirng} トリミングした配列
@@ -33,12 +46,20 @@ export const ramStore = defineStore('ram',{
       })
     },
     /**
-     * Brandで選択されたの要素だけデータを抽出する関数
+     * SizeとBrandで選択されたの要素だけデータを抽出する
      * @param {any} array 配列データ
      * @return {stirng} 抽出した配列
      */
     extractBrandData(array:any){
       return array.filter(w=>w.Brand==this.$state.brand)
+                  .filter(w=>w.Size==this.$state.size)
+    },
+    /**
+     * Sizeで選択された値をstate.sizeにセットする
+     * @param {object} e イベントデータ
+     */
+    setSizeData(e){
+      this.$patch({size: e.target.value});
     },
     /**
      * Brandで選択された値をstate.brandにセットする
@@ -55,7 +76,7 @@ export const ramStore = defineStore('ram',{
     setModelData(e,selected){
       this.$patch({
         model: e.target.value,
-        cpudata: selected
+        ramdata: selected
       });
     }
   },
