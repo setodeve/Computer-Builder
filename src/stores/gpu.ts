@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 
-export const cpuStore = defineStore('cpu',{
+export const gpuStore = defineStore('gpu',{
   state: () => ({
     brand: "-",
     model: "-",
     fetchdata: {},
-    cpudata: {},
+    gpudata: {},
     Loading:false
   }),
   actions:{
@@ -54,9 +54,8 @@ export const cpuStore = defineStore('cpu',{
     setModelData(e,selected){
       this.$patch({
         model: e.target.value,
-        cpudata: selected
+        gpudata: selected
       });
     }
   },
 })
-

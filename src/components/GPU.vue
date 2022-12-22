@@ -1,8 +1,6 @@
 <template>
-
-    <div>Build Your Own PC</div>
     <div v-if="store.$state.Loading==true">
-        <div>step1:Select your CPU</div>
+        <div>step2:Select your GPU</div>
         <div id="select">
           Brand
           <select id="selectBrand" v-on:change="store.setBrandData">          
@@ -26,12 +24,12 @@
 </template>
 
 <script lang="ts">
-import { cpuStore } from '../stores/cpu'
+import { gpuStore } from '../stores/gpu'
 import { defineComponent } from "vue";
 export default defineComponent ({
   setup(){
-    const store = cpuStore();
-    store.getData("https://api.recursionist.io/builder/computers?type=cpu")
+    const store = gpuStore();
+    store.getData("https://api.recursionist.io/builder/computers?type=gpu")
     return {
       store
     }
