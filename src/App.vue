@@ -1,18 +1,17 @@
 <script setup lang="ts">
   import { storeToRefs } from "pinia";
-  import CPU from "./components/CPU.vue" ;  
-  import GPU from "./components/GPU.vue" ;
+  import CPU_GPU from "./components/CPU_GPU.vue" ;  
   import { cpuStore } from "./stores/cpu";
   import { gpuStore } from "./stores/gpu";
   
-  const { cpudata } = storeToRefs(cpuStore())
+  const { cpudata,Loading } = storeToRefs(cpuStore())
   const { gpudata } = storeToRefs(gpuStore())
 
 </script>
 
 <template>
-  <CPU></CPU>
-  <GPU></GPU>
+    <CPU_GPU type="CPU"></CPU_GPU>
+    <CPU_GPU type="GPU"></CPU_GPU>
   <!-- {{ cpudata }}
   {{ gpudata }} -->
 </template>
