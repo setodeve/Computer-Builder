@@ -39,9 +39,8 @@ export const storageStore = defineStore('storage',{
      * @return {stirng} トリミングした配列
      */
       addSizeData(array:any){
-
         return array.filter((item) => {
-          const size = item.Model.match(/\d+(?:TB|GB)/);
+          const size = item.Model.match(/\d+(?:TB|GB|MB)/);
           item.Size = size[0];
           return item;
         })

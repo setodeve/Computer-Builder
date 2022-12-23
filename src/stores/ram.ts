@@ -17,7 +17,7 @@ export const ramStore = defineStore('ram',{
     getData(url:string){
       fetch(url)
       .then(data => data.json())
-      .then(data => this.fetchdata = this.trimRamSizeData(data))
+      .then(data => this.fetchdata = this.addSizeData(data))
       .then(() => this.Loading = true )
     },
     /**
@@ -25,10 +25,10 @@ export const ramStore = defineStore('ram',{
      * @param {any} array 配列データ
      * @return {stirng} トリミングした配列
      */
-      trimRamSizeData(array:any){
+      addSizeData(array:any){
         return array.filter((item) => {
-          const position = item.Model.lastIndexOf(" ");
-          item.Size = item.Model.substring(position+1);
+          const size = item.Model.match(/\d+x\d+(?:GB)/);
+          item.Size = size[0];
           return item;
         })
       }
