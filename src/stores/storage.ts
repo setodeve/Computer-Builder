@@ -34,7 +34,7 @@ export const storageStore = defineStore('storage',{
       }
     },
     /**
-     * メモリの数とメモリの大きさを連想配列に追加する
+     * Storageの大きさを連想配列に追加する
      * @param {any} array 配列データ
      * @return {stirng} トリミングした配列
      */
