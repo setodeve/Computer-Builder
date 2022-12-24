@@ -5,10 +5,13 @@
   import STORAGE from "./components/STORAGE.vue" ;
   import { cpuStore } from "./stores/cpu";
   import { gpuStore } from "./stores/gpu";
-  
+  import { ramStore } from "./stores/ram";
+  import { storageStore } from "./stores/storage";
+
   const { cpudata } = storeToRefs(cpuStore())
   const { gpudata } = storeToRefs(gpuStore())
-
+  const { ramdata } = storeToRefs(ramStore())
+  const { storagedata } = storeToRefs(storageStore())
 </script>
 
 <template>
@@ -16,6 +19,13 @@
     <CPU_GPU type="GPU"></CPU_GPU>
     <RAM></RAM>
     <STORAGE></STORAGE>
+    {{ cpudata }}
+    <br>
+    {{ gpudata }}
+    <br>
+    {{ ramdata }}
+    <br>
+    {{ storagedata }}
 </template>
 
 <style scoped>
