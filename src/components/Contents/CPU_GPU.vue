@@ -1,6 +1,5 @@
 <template>
     <div v-if="type=='CPU'">
-      <div>Build Your Own PC</div>
       <div v-if="store.$state.Loading==true">
           <div>step1:Select your CPU</div>
           <div id="select">
