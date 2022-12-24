@@ -52,8 +52,8 @@
 </template>
 
 <script lang="ts">
-import { cpuStore } from '../stores/cpu'
-import { gpuStore } from '../stores/gpu'
+import { cpuStore } from '../../stores/cpu'
+import { gpuStore } from '../../stores/gpu'
 import { defineComponent } from "vue";
 export default defineComponent ({
   setup(props){

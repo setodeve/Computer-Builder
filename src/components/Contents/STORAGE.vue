@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { storageStore } from '../stores/storage'
+import { storageStore } from '../../stores/storage'
 import { defineComponent } from "vue";
 export default defineComponent ({
   setup(){

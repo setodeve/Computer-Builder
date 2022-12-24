@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { storeToRefs } from "pinia";
-  import CPU_GPU from "./components/CPU_GPU.vue" ;
-  import RAM from "./components/RAM.vue" ;
-  import STORAGE from "./components/STORAGE.vue" ;
+  import CPU_GPU from "./components/Contents/CPU_GPU.vue" ;
+  import RAM from "./components/Contents/RAM.vue" ;
+  import STORAGE from "./components/Contents/STORAGE.vue" ;
   import { cpuStore } from "./stores/cpu";
   import { gpuStore } from "./stores/gpu";
   import { ramStore } from "./stores/ram";

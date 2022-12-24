@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { ramStore } from '../stores/ram'
+import { ramStore } from '../../stores/ram'
 import { defineComponent } from "vue";
 export default defineComponent ({
   setup(){
