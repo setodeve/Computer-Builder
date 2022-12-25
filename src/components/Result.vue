@@ -26,8 +26,11 @@
 
 </template>
 
+
+
 <script>
 import { defineComponent } from "vue";
+
 export default defineComponent({
   data() {
     const gamingResult = this.data[0].Benchmark*0.6 + this.data[1].Benchmark*0.25 
@@ -40,8 +43,9 @@ export default defineComponent({
     }
   },
   props:{
-      data: Array
+    data: Array
   }
+
 })
 </script>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { storeToRefs } from "pinia";
+  import { ref } from "vue" ;
   import Header from "./components/Header.vue" ;
   import CPU_GPU from "./components/Contents/CPU_GPU.vue" ;
   import RAM from "./components/Contents/RAM.vue" ;
@@ -50,10 +51,16 @@
     <CPU_GPU type="GPU"></CPU_GPU>
     <RAM></RAM>
     <STORAGE></STORAGE>
-    <Button :data=[Object.keys(cpudata).length,Object.keys(gpudata).length,Object.keys(ramdata).length,Object.keys(storagedata).length] @myButton="setData">
+    <Button 
+            :data=[Object.keys(cpudata).length,Object.keys(gpudata).length,Object.keys(ramdata).length,Object.keys(storagedata).length] 
+            @myButton="setData">
     </Button>
     <br>
-    <Result v-if="resultFlg" :data=[cpudata,gpudata,ramdata,storagedata]></Result>
+    <!-- keyはObject型は設定できないためワーニングが発生。 -->
+    <Result v-if="resultFlg" 
+            :key="[Object.keys(cpudata),Object.keys(gpudata),Object.keys(ramdata),Object.keys(storagedata)]" 
+            :data=[cpudata,gpudata,ramdata,storagedata]>
+    </Result>
 </template>
 
 <style scoped>
