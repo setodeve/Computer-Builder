@@ -1,6 +1,5 @@
 <script lang="ts">
   import { storeToRefs } from "pinia";
-  import { ref } from "vue" ;
   import Header from "./components/Header.vue" ;
   import CPU_GPU from "./components/Contents/CPU_GPU.vue" ;
   import RAM from "./components/Contents/RAM.vue" ;
