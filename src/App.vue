@@ -56,9 +56,8 @@
             @myButton="setData">
     </Button>
     <br>
-    <!-- keyはObject型は設定できないためワーニングが発生。 -->
     <Result v-if="resultFlg" 
-            :key="[Object.keys(cpudata),Object.keys(gpudata),Object.keys(ramdata),Object.keys(storagedata)]" 
+            :key="cpudata.Model + gpudata.Model + ramdata.Model + storagedata.Model"
             :data=[cpudata,gpudata,ramdata,storagedata]>
     </Result>
 </template>

@@ -1,11 +1,20 @@
 import { defineStore } from 'pinia'
 
+interface CpuState {
+  Type: string;
+  "Part Number": string;
+  Brand: string;
+  Model: string;
+  Rank: number;
+  Benchmark: number;
+}
+
 export const cpuStore = defineStore('cpu',{
   state: () => ({
     brand: "-",
     model: "-",
     fetchdata: {},
-    cpudata: {},
+    cpudata: <CpuState>{},
     Loading:false
   }),
   actions:{
