@@ -1,11 +1,20 @@
 import { defineStore } from 'pinia'
 
+interface GpuState {
+  Type: string;
+  "Part Number": string;
+  Brand: string;
+  Model: string;
+  Rank: number;
+  Benchmark: number;
+}
+
 export const gpuStore = defineStore('gpu',{
   state: () => ({
     brand: "-",
     model: "-",
     fetchdata: {},
-    gpudata: {},
+    gpudata: <GpuState>{},
     Loading:false
   }),
   actions:{

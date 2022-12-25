@@ -1,12 +1,21 @@
 import { defineStore } from 'pinia'
 
+interface RamState {
+  Type: string;
+  "Part Number": string;
+  Brand: string;
+  Model: string;
+  Rank: number;
+  Benchmark: number;
+}
+
 export const ramStore = defineStore('ram',{
   state: () => ({
     size :"-",
     brand: "-",
     model: "-",
     fetchdata: {},
-    ramdata: {},
+    ramdata: <RamState>{},
     Loading:false
   }),
   actions:{

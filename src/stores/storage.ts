@@ -1,5 +1,14 @@
 import { defineStore } from 'pinia'
 
+interface StorageState {
+  Type: string;
+  "Part Number": string;
+  Brand: string;
+  Model: string;
+  Rank: number;
+  Benchmark: number;
+}
+
 export const storageStore = defineStore('storage',{
   state: () => ({
     storage :"-",
@@ -7,7 +16,7 @@ export const storageStore = defineStore('storage',{
     brand: "-",
     model: "-",
     fetchdata: {},
-    storagedata: {},
+    storagedata: <StorageState>{},
     Loading:false
   }),
   actions:{
