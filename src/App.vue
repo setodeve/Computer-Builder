@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   import { storeToRefs } from "pinia";
   import Header from "./components/Header.vue" ;
   import CPU_GPU from "./components/Contents/CPU_GPU.vue" ;
@@ -11,10 +11,37 @@
   import { ramStore } from "./stores/ram";
   import { storageStore } from "./stores/storage";
 
-  const { cpudata } = storeToRefs(cpuStore())
-  const { gpudata } = storeToRefs(gpuStore())
-  const { ramdata } = storeToRefs(ramStore())
-  const { storagedata } = storeToRefs(storageStore())
+  export default{
+    setup(){
+      const { cpudata } = storeToRefs(cpuStore())
+      const { gpudata } = storeToRefs(gpuStore())
+      const { ramdata } = storeToRefs(ramStore())
+      const { storagedata } = storeToRefs(storageStore())
+      let resultFlg = false;
+
+      return {
+        cpudata,
+        gpudata,
+        ramdata,
+        storagedata,
+        resultFlg
+      }
+    },
+    methods: {
+      setData(){
+        this.resultFlg = true;
+        this.$forceUpdate();
+      }
+    },
+    components: {
+      Header : Header,
+      CPU_GPU : CPU_GPU,
+      RAM : RAM,
+      STORAGE : STORAGE,
+      Button : Button,
+      Result : Result
+    }
+  }
 </script>
 
 <template>
@@ -23,15 +50,10 @@
     <CPU_GPU type="GPU"></CPU_GPU>
     <RAM></RAM>
     <STORAGE></STORAGE>
-    {{ cpudata }}
+    <Button :data=[Object.keys(cpudata).length,Object.keys(gpudata).length,Object.keys(ramdata).length,Object.keys(storagedata).length] @myButton="setData">
+    </Button>
     <br>
-    {{ gpudata }}
-    <br>
-    {{ ramdata }}
-    <br>
-    {{ storagedata }}
-    <Button></Button>
-    <Result></Result>
+    <Result v-if="resultFlg" :data=[cpudata,gpudata,ramdata,storagedata]></Result>
 </template>
 
 <style scoped>
