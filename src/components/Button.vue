@@ -1,5 +1,9 @@
 <template>
-    <button v-bind:disabled="data.includes(0)" v-on:click="send">Add PC</button>
+    <button v-bind:disabled="data.includes(0)" 
+            v-on:click="send"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            Add PC
+    </button>
 </template>
 
 <script>

@@ -1,13 +1,3 @@
 <template>
-  <div>Build Your Own PC</div>
+  <div class="flex justify-center top-5 text-4xl pt-5">Build Your Own PC</div>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>
