@@ -1,3 +1,23 @@
+<script lang="ts">
+import { ramStore } from '../../stores/ram'
+import { defineComponent } from "vue";
+export default defineComponent ({
+  setup(){
+    const store = ramStore();
+    store.getData("https://api.recursionist.io/builder/computers?type=ram")
+
+    return {
+      store
+    }
+  },
+  data(){
+    return{
+        selected:'-',
+    }
+  },
+})
+</script>
+
 <template>
   <div>
     <div v-if="store.$state.Loading==true">
@@ -44,26 +64,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { ramStore } from '../../stores/ram'
-import { defineComponent } from "vue";
-export default defineComponent ({
-  setup(){
-    const store = ramStore();
-    store.getData("https://api.recursionist.io/builder/computers?type=ram")
-
-    return {
-      store
-    }
-  },
-  data(){
-    return{
-        selected:'-',
-    }
-  },
-})
-</script>
 
 <style>
 

@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <div class="container text-white mx-auto flex flex-col font-mono space-y-7">
+  <div class="container text-white mx-auto font-mono space-y-7">
     <Header></Header>
     <CPU_GPU type="CPU"></CPU_GPU>
     <CPU_GPU type="GPU"></CPU_GPU>

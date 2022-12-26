@@ -1,3 +1,22 @@
+<script lang="ts">
+import { storageStore } from '../../stores/storage'
+import { defineComponent } from "vue";
+export default defineComponent ({
+  setup(){
+    const store = storageStore();
+    store.getData("https://api.recursionist.io/builder/computers")
+    return {
+      store
+    }
+  },
+  data(){
+    return{
+        selected:'-',
+    }
+  },
+})
+</script>
+
 <template>
   <div>
     <div v-if="store.$state.Loading==true">
@@ -52,25 +71,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { storageStore } from '../../stores/storage'
-import { defineComponent } from "vue";
-export default defineComponent ({
-  setup(){
-    const store = storageStore();
-    store.getData("https://api.recursionist.io/builder/computers")
-    return {
-      store
-    }
-  },
-  data(){
-    return{
-        selected:'-',
-    }
-  },
-})
-</script>
 
 <style>
 
