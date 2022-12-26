@@ -50,17 +50,17 @@ export const cpuStore = defineStore('cpu',{
     },
     /**
      * Brandで選択された値をstate.brandにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      */
-    setBrandData(e){
+    setBrandData(e:any){
       this.$patch({brand: e.target.value});
     },
     /**
      * Modelで選択された値をstate.modelにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      * @param {object} selected 選択されたデータ
      */
-    setModelData(e,selected){
+    setModelData(e:any,selected:Object){
       this.$patch({
         model: e.target.value,
         cpudata: selected

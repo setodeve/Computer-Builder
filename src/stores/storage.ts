@@ -31,10 +31,11 @@ export const storageStore = defineStore('storage',{
       .then(() => this.Loading = true )
     },
     /**
+     * イベントデータをセットする
      * urlをfetchし、fetchしたデータをセットする
-     * @param {string} url fetch先のURL
+     * @param {string} e イベントデータ
      */
-    getStorageData(e){
+    getStorageData(e:any){
       this.setStorageData(e)
       if(e.target.value=="HDD"){
         this.getData("https://api.recursionist.io/builder/computers?type=hdd")
@@ -78,31 +79,31 @@ export const storageStore = defineStore('storage',{
     },
     /**
      * Storageで選択された値をstate.sizeにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      */
-    setStorageData(e){
+    setStorageData(e:any){
       this.$patch({storage: e.target.value});
     },
     /**
      * Sizeで選択された値をstate.sizeにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      */
-    setSizeData(e){
+    setSizeData(e:any){
       this.$patch({size: e.target.value});
     },
     /**
      * Brandで選択された値をstate.brandにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      */
-    setBrandData(e){
+    setBrandData(e:any){
       this.$patch({brand: e.target.value});
     },
     /**
      * Modelで選択された値をstate.modelにセットする
-     * @param {object} e イベントデータ
+     * @param {any} e イベントデータ
      * @param {object} selected 選択されたデータ
      */
-    setModelData(e,selected){
+    setModelData(e:any,selected:Object){
       this.$patch({
         model: e.target.value,
         storagedata: selected
