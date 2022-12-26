@@ -64,7 +64,7 @@ import { cpuStore } from '../../stores/cpu'
 import { gpuStore } from '../../stores/gpu'
 import { defineComponent } from "vue";
 export default defineComponent ({
-  setup(props){
+  setup(props : any){
     const store = props.type=="CPU" ? cpuStore() : gpuStore() ;
     if(props.type=="CPU"){
       store.getData("https://api.recursionist.io/builder/computers?type=cpu")
