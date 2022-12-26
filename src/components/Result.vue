@@ -32,29 +32,31 @@
     <div class="text-2xl underline">
       Selected Parts
     </div>
-    <table class="w-full text-left">
-    <tr>
-      <td>CPU</td>
-      <td>{{ cpuprops?.Model }}</td>
-    </tr>
-    <tr>
-      <td>GPU</td>
-      <td>{{ gpuprops?.Model }}</td>
-    </tr>
-    <tr>
-      <td>RAM</td>
-      <td>{{ ramprops?.Model }}</td>
-    </tr>
-    <tr>
-      <td>STORAGE</td>
-      <td>{{ storageprops?.Model }}</td>
-    </tr>
-    </table>
+    <div class="pl-3">
+      <table class="w-full text-left">
+        <tr>
+          <td>CPU</td>
+          <td>{{ cpuprops?.Model }}</td>
+        </tr>
+        <tr>
+          <td>GPU</td>
+          <td>{{ gpuprops?.Model }}</td>
+        </tr>
+        <tr>
+          <td>RAM</td>
+          <td>{{ ramprops?.Model }}</td>
+        </tr>
+        <tr>
+          <td>STORAGE</td>
+          <td>{{ storageprops?.Model }}</td>
+        </tr>
+      </table>
+    </div>
     <div class="space-y-4">
       <div class="text-2xl underline">
         Result
       </div>
-      <div class="flex space-x-5">
+      <div class="flex space-x-5 pl-3">
         <span>
           Gaming : {{ gamingResult.toFixed() }}%
         </span>
