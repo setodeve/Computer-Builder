@@ -1,3 +1,32 @@
+<script lang="ts">
+  import { defineComponent } from "vue";
+
+  export default defineComponent({
+    setup(props : any) {
+      const gamingResult : number =   props.calcdata[0]*0.6 
+                                    + props.calcdata[1]*0.25 
+                                    + props.calcdata[2]*0.125 
+                                    + props.calcdata[3]*0.025 ;
+      const homeResult   : number =   props.calcdata[0]*0.6 
+                                    + props.calcdata[1]*0.25 
+                                    + props.calcdata[2]*0.1 
+                                    + props.calcdata[3]*0.05 ;
+      return {
+        gamingResult,
+        homeResult,
+      };
+    },
+    props:{
+      cpuprops : Object,
+      gpuprops : Object,
+      ramprops : Object,
+      storageprops : Object,
+      calcdata : Array
+    }
+
+  });
+</script>
+
 <template>
   <div class="overflow-x-auto relative space-y-4">
     <div class="text-2xl underline">
@@ -6,19 +35,19 @@
     <table class="w-full text-left">
     <tr>
       <td>CPU</td>
-      <td>{{ data[0].Model}}</td>
+      <td>{{ cpuprops?.Model }}</td>
     </tr>
     <tr>
       <td>GPU</td>
-      <td>{{ data[1].Model}}</td>
+      <td>{{ gpuprops?.Model }}</td>
     </tr>
     <tr>
       <td>RAM</td>
-      <td>{{ data[2].Model}}</td>
+      <td>{{ ramprops?.Model }}</td>
     </tr>
     <tr>
       <td>STORAGE</td>
-      <td>{{ data[3].Model}}</td>
+      <td>{{ storageprops?.Model }}</td>
     </tr>
     </table>
     <div class="space-y-4">
@@ -34,34 +63,8 @@
         </span>
       </div>      
     </div>
-
   </div>
 </template>
-
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  data() {
-    const gamingResult =  this.data[0].Benchmark*0.6 
-                        + this.data[1].Benchmark*0.25 
-                        + this.data[2].Benchmark*0.125 
-                        + this.data[3].Benchmark*0.025 ;
-    const homeResult =  this.data[0].Benchmark*0.6 
-                      + this.data[1].Benchmark*0.25 
-                      + this.data[2].Benchmark*0.1 
-                      + this.data[3].Benchmark*0.05 ;
-    return {
-      gamingResult,
-      homeResult
-    }
-  },
-  props:{
-    data: Array
-  }
-
-})
-</script>
 
 <style>
 

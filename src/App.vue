@@ -20,7 +20,7 @@
       let resultFlg = false;
 
       return {
-        cpudata,
+        cpudata ,
         gpudata,
         ramdata,
         storagedata,
@@ -58,7 +58,11 @@
     <br>
     <Result v-if="resultFlg" 
             :key="cpudata.Model + gpudata.Model + ramdata.Model + storagedata.Model"
-            :data=[cpudata,gpudata,ramdata,storagedata]>
+            :cpuprops = cpudata
+            :gpuprops = gpudata
+            :ramprops = ramdata
+            :storageprops = storagedata
+            :calcdata = [cpudata.Benchmark,gpudata.Benchmark,ramdata.Benchmark,storagedata.Benchmark]>
     </Result>
   </div>
 </template>
