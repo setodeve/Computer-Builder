@@ -17,7 +17,8 @@ export default defineComponent ({
 
   },
   props: {
-    type: String
+    type: String,
+    step: String
   },
   data(){
     return{
@@ -29,41 +30,12 @@ export default defineComponent ({
 
 <template>
   <div>
-    <div v-if="type=='CPU'">
-      <div v-if="store.$state.Loading==true">
-          <div class="text-xl pb-1">step1:Select your CPU</div>
-          <div id="select" class="flex space-x-4 pl-3">
-            <span>
-                Brand
-              <select id="selectBrand" v-on:change="store.setBrandData" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="-">-</option>
-                <option v-for="(data, index) in store.trimData(store.$state.fetchdata,'Brand')" :key=index>
-                  {{ data['Brand'] }}
-                </option>
-              </select>
-            </span>
-            <span>
-              Model 
-              <select id="selectModel" v-model="selected" v-on:change="store.setModelData($event,selected)" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="-">-</option>
-                <option v-for="(data, index) in store.trimData(store.extractBrandData(store.$state.fetchdata),'Model')" :key=index v-bind:value="data" >
-                  {{ data['Model'] }}
-                </option>
-              </select>
-            </span>
-          </div>
-      </div>
-      <div v-else>
-        loading........
-      </div>
-    </div>
-    <div v-else>
-      <div v-if="store.$state.Loading==true">
-        <div class="text-xl pb-1">step2:Select your GPU</div>
+    <div v-if="store.$state.Loading==true">
+        <div class="text-xl pb-1">step{{ step }}:Select your {{ type }}</div>
         <div id="select" class="flex space-x-4 pl-3">
           <span>
-            Brand
-            <select id="selectBrand" v-on:change="store.setBrandData" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">          
+              Brand
+            <select id="selectBrand" v-on:change="store.setBrandData" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="-">-</option>
               <option v-for="(data, index) in store.trimData(store.$state.fetchdata,'Brand')" :key=index>
                 {{ data['Brand'] }}
@@ -71,8 +43,8 @@ export default defineComponent ({
             </select>
           </span>
           <span>
-            Model
-            <select name="" id="" v-model="selected" v-on:change="store.setModelData($event,selected)" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            Model 
+            <select id="selectModel" v-model="selected" v-on:change="store.setModelData($event,selected)" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="-">-</option>
               <option v-for="(data, index) in store.trimData(store.extractBrandData(store.$state.fetchdata),'Model')" :key=index v-bind:value="data" >
                 {{ data['Model'] }}
@@ -80,10 +52,9 @@ export default defineComponent ({
             </select>
           </span>
         </div>
-      </div>
-      <div v-else>
-        loading........
-      </div>
+    </div>
+    <div v-else>
+      loading........
     </div>
   </div>
 </template>
