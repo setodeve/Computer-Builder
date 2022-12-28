@@ -28,7 +28,7 @@
 </script>
 
 <template>
-  <div class="overflow-x-auto relative space-y-4">
+  <div class="overflow-x-auto relative space-y-4 from-gray-900 to-gray-600">
     <div class="text-2xl underline">
       Selected Parts
     </div>

@@ -22,7 +22,7 @@ export default defineComponent ({
   <div>
     <div v-if="store.$state.Loading==true">
       <div class="text-xl pb-1">step3:Select your memory card</div>
-      <div id="select" class="flex space-x-4 pb-1 pl-3">
+      <div id="select" class="flex flex-wrap space-x-2 pb-1 pl-3">
         <span>
           HOW Many? 
           <select id="selectSize" v-on:change="store.setSizeData" class="text-black bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <div class="container text-white mx-auto font-mono space-y-7">
+  <div class="container bg-auto text-white mx-auto font-mono space-y-7">
     <Header></Header>
     <CPU_GPU type="CPU" step="1"></CPU_GPU>
     <CPU_GPU type="GPU" step="2"></CPU_GPU>
@@ -64,6 +64,9 @@
             :storageprops = storagedata
             :calcdata = [cpudata.Benchmark,gpudata.Benchmark,ramdata.Benchmark,storagedata.Benchmark]>
     </Result>
+    <div v-else>
+
+    </div>
   </div>
 </template>
 
