@@ -22,8 +22,8 @@ export const cpuStore = defineStore('cpu',{
      * urlをfetchし、fetchしたデータをセットする
      * @param {string} url fetch先のURL
      */
-    getData(url:string){
-      fetch(url)
+    async getData(url:string){
+      await fetch(url)
       .then(data => data.json())
       .then(data => this.fetchdata = data)
       .then(() => this.Loading = true )
@@ -35,8 +35,8 @@ export const cpuStore = defineStore('cpu',{
      * @return {stirng} トリミングした配列
      */
     trimData(array:any,str:string){
-      return array.filter((item, index, self) => {
-        const nameList = self.map(item => item[str]);
+      return array.filter((item:any, index:any, self:any) => {
+        const nameList = self.map((item:any) => item[str]);
         if (nameList.indexOf(item[str]) == index) return item;
       })
     },
@@ -46,7 +46,7 @@ export const cpuStore = defineStore('cpu',{
      * @return {stirng} 抽出した配列
      */
     extractBrandData(array:any){
-      return array.filter(w=>w.Brand==this.$state.brand)
+      return array.filter((w:any) =>w.Brand==this.$state.brand)
     },
     /**
      * Brandで選択された値をstate.brandにセットする

@@ -24,8 +24,8 @@ export const storageStore = defineStore('storage',{
      * urlをfetchし、fetchしたデータをセットする
      * @param {string} url fetch先のURL
      */
-    getData(url:string){
-      fetch(url)
+    async getData(url:string){
+      await fetch(url)
       .then(data => data.json())
       .then(data => this.fetchdata = this.addSizeData(data))
       .then(() => this.Loading = true )
