@@ -78,7 +78,7 @@ export const storageStore = defineStore('storage',{
                   .filter(w=>w.Size==this.$state.size)
     },
     /**
-     * Storageで選択された値をstate.sizeにセットする
+     * Storageで選択された値をstate.storageにセットする
      * @param {any} e イベントデータ
      */
     setStorageData(e:any){
