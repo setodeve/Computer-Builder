@@ -32,7 +32,7 @@ export const cpuStore = defineStore('cpu',{
      * strの要素だけデータをトリミングする
      * @param {any} array 配列データ
      * @param {string} str BrandやModelなどの文字列
-     * @return {stirng} トリミングした配列
+     * @return {array} トリミングした配列
      */
     trimData(array:any,str:string){
       return array.filter((item:any, index:any, self:any) => {
