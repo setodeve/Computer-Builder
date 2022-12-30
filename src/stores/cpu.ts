@@ -53,7 +53,6 @@ export const cpuStore = defineStore('cpu',{
      * @param {any} e イベントデータ
      */
     setBrandData(e:any){
-      console.log(e)
       this.$patch({brand: e.target.value});
     },
     /**
