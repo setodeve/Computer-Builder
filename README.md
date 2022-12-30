@@ -13,12 +13,12 @@ Recursionの課題で、APIで取得したデータを加工、表示するア�
 ### **工夫した点**
 1.TypeScript×Vueによる実装を行った
 
-Typescriptの練習、Vueの復習のため開発を行いました。
-コンポーネントの分割、Piniaを使用したデータ処理部分に特に注力しました。
+Typescript、Vueにて開発を行いました。
+コンポーネントを分割しわかりやすい開発を意識しました。
 
 2.Jestでユニットテストを行った
 
-Jest、Vitest,Vue-test-utilisなどを使用し、コンポーネントに対しテストを行いました。
+Jest、Vitest, Vue-test-utilisを使用し、テストを行いました。
 
 
 <br>
