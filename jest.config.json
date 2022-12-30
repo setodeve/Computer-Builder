@@ -3,10 +3,12 @@
     "<rootDir>/src/test"
   ],
   "testMatch": [
-    "**/__tests__/**/*.+(ts|tsx|js)",
-    "**/?(*.)+(spec|test).+(ts|tsx|js)"
+    "**/__tests__/**/*.+(ts|tsx|js|vue)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js|vue)"
   ],
   "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  }
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    ".*\\.(vue)$": "@vue/vue3-jest"
+  },
+  "testEnvironment": "jsdom"
 }
