@@ -35,7 +35,7 @@ export const ramStore = defineStore('ram',{
      * @return {stirng} トリミングした配列
      */
       addSizeData(array:any){
-        return array.filter((item) => {
+        return array.filter((item:any) => {
           const size = item.Model.match(/\d+x\d+(?:GB)/);
           item.Size = size[0];
           return item;
@@ -49,8 +49,8 @@ export const ramStore = defineStore('ram',{
      * @return {stirng} トリミングした配列
      */
     trimData(array:any,str:string){
-      return array.filter((item, index, self) => {
-        const nameList = self.map(item => item[str]);
+      return array.filter((item:any, index:any, self:any) => {
+        const nameList = self.map((item:any) => item[str]);
         if (nameList.indexOf(item[str]) == index) return item;
       })
     },
@@ -60,8 +60,8 @@ export const ramStore = defineStore('ram',{
      * @return {stirng} 抽出した配列
      */
     extractBrandData(array:any){
-      return array.filter(w=>w.Brand==this.$state.brand)
-                  .filter(w=>w.Size==this.$state.size)
+      return array.filter((w:any)=>w.Brand==this.$state.brand)
+                  .filter((w:any)=>w.Size==this.$state.size)
     },
     /**
      * Sizeで選択された値をstate.sizeにセットする
