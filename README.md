@@ -1,18 +1,43 @@
-# Vue 3 + TypeScript + Vite
+## **Computer Builder**
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<br>
 
-## Recommended IDE Setup
+### **概要**
+Recursionの課題で、APIで取得したデータを加工、表示するアプリです。
+コンピューターの各パーツ（CPU/GPU/RAM/HDD・SSD）を選択することで、この構成がゲーム用・作業用にどれだけ適しているかをベンチマークとして表示します。
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Alt Text]('/../src/assets/app.gif)
 
-## Type Support For `.vue` Imports in TS
+<br>
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### **工夫した点**
+1.TypeScript×Vueによる実装を行った
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Typescriptの練習、Vueの復習のため開発を行いました。
+コンポーネントの分割、Piniaを使用したデータ処理部分に特に注力しました。
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+2.Jestでユニットテストを行った
+
+初めてJestを触って、コンポーネントに対しテストを行いました。
+テストパッケージ(Vitest,Vue-test-utilisなど)の練習ができました。
+
+
+<br>
+
+### **改善点**
+
+1.any型を乱用してしまった
+
+Typescriptの恩恵である型安全性を根本的に無視する形で開発を進めてしまった。
+開発の最初の段階でどんな型を使用すべきか判断するようにする。
+
+<br>
+
+### **ソースコード**
+https://github.com/setodeve/Computer-Builder
+
+<br>
+
+### **URL**
+https://setodeve.github.io/Computer-Builder/
+
